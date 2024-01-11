@@ -35,6 +35,14 @@ public class GestionDatos {
 		
 		daoCliente.insert(cliente);
 		
+		cliente = new Cliente();
+		cliente.setCodigo(2);
+		cliente.setDni("098987332");
+		cliente.setDireccion("Monay");
+		cliente.setNombre("Juan Torres");
+		
+		daoCliente.insert(cliente);
+		
 		Factura factura = new Factura();
 		factura.setCliente(cliente);
 		factura.setNumero("001-001-00000001");

@@ -24,7 +24,7 @@ public class ClienteDAO {
 	
 	public void remove(int codigo) {
 		Cliente cliente = em.find(Cliente.class, codigo);
-		em.refresh(cliente);
+		em.remove(cliente);
 	}
 	
 	public Cliente read(int codigo) {
@@ -36,5 +36,15 @@ public class ClienteDAO {
 		String jpql = "SELECT c FROM Cliente c";
 		Query q = em.createQuery(jpql, Cliente.class);
 		return q.getResultList();
+	}
+	
+	public Cliente getClientePorCedula(String cedula){
+		String jpql = "SELECT c FROM Cliente c WHERE c.dni = :cedula";
+		Query q = em.createQuery(jpql, Cliente.class);
+		q.setParameter("cedula", cedula);
+		List<Cliente> clientes = q.getResultList();
+		if(clientes.size()>0)
+			return clientes.get(0);
+		return null;
 	}
 }
