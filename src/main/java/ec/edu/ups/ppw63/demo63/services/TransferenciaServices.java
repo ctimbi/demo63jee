@@ -17,8 +17,8 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-@Path("clientes")
-public class ClienteServices {
+@Path("transferencia")
+public class TransferenciaServices {
 	
 	@Inject
 	private GestionClientes gClientes;
@@ -26,9 +26,9 @@ public class ClienteServices {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response crear(Cliente cliente) {
+	public Response transferir(Transferencia transferencia) {
 		try{
-			gClientes.guardarClientes(cliente);
+			//gClientes.guardarClientes(cliente);
 			ErrorMessage error = new ErrorMessage(1, "OK");
 			return Response.status(Response.Status.CREATED)
 					.entity(error)

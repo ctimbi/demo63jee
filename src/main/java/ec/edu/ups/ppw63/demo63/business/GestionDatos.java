@@ -5,6 +5,7 @@ import java.util.List;
 
 import ec.edu.ups.ppw63.demo63.dao.ClienteDAO;
 import ec.edu.ups.ppw63.demo63.dao.FacturaDAO;
+import ec.edu.ups.ppw63.demo63.model.CantidadFacturasCliente;
 import ec.edu.ups.ppw63.demo63.model.Cliente;
 import ec.edu.ups.ppw63.demo63.model.DetalleFactura;
 import ec.edu.ups.ppw63.demo63.model.Factura;
@@ -47,7 +48,7 @@ public class GestionDatos {
 		factura.setCliente(cliente);
 		factura.setNumero("001-001-00000001");
 		factura.setFechaEmision(new Date());
-		factura.setTotal(1000.52);
+		factura.setTotal(1000);
 		
 		
 		
@@ -77,5 +78,13 @@ public class GestionDatos {
 		for (Factura fac: list2) {
 			System.out.println(fac);
 		}
+		
+		
+		System.out.println("\n------------- Cantidad FActuras");
+		List<CantidadFacturasCliente> list3 = daoFactura.getTotalFacturas();
+		for (CantidadFacturasCliente fac: list3) {
+			System.out.println(fac);
+		}
+		
 	}
 }
